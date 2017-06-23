@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.asstea.statusbar.MainActivity">
+
+    <Button
+        android:id="@+id/holo_blue_bright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="holo_blue_bright" />
+
+    <Button
+        android:id="@+id/holo_green_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="holo_green_dark" />
+
+    <Button
+        android:id="@+id/holo_red_dark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="holo_red_dark" />
+
+    <Button
+        android:id="@+id/full_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="full_activity" />
+
+
+</LinearLayout>
