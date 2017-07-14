@@ -17,6 +17,9 @@ class MainActivity(override val layoutResID: Int = R.layout.activity_main) : App
         holo_red_dark.setOnClickListener {
             showStatusBarColor(android.R.color.holo_red_dark)
         }
+        transparent.setOnClickListener {
+            showStatusBarTransparent()
+        }
         full_activity.setOnClickListener {
             startActivity(Intent(this@MainActivity, FullActivity::class.java))
         }
@@ -26,6 +29,5 @@ class MainActivity(override val layoutResID: Int = R.layout.activity_main) : App
     override fun statusBarColor(): Int {
         return R.color.colorAccent
     }
-
 
 }

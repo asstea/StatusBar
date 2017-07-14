@@ -25,6 +25,12 @@
         android:text="holo_red_dark" />
 
     <Button
+        android:id="@+id/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="transparent" />
+
+    <Button
         android:id="@+id/full_activity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

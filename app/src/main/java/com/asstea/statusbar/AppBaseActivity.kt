@@ -27,6 +27,8 @@ abstract class AppBaseActivity : AppCompatActivity() {
         setStatusBar()
     }
 
+    private var systemBarTintManager: SystemBarTintManager? = null
+
     private fun setStatusBar() {
         if (systemBarTint()) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -36,9 +38,9 @@ abstract class AppBaseActivity : AppCompatActivity() {
                 window.statusBarColor = resources.getColor(statusBarColor())
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
                 window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-                val tintManager = SystemBarTintManager(this)
-                tintManager.isStatusBarTintEnabled = true
-                tintManager.setTintResource(statusBarColor())
+                systemBarTintManager = SystemBarTintManager(this)
+                systemBarTintManager?.isStatusBarTintEnabled = true
+                systemBarTintManager?.setTintResource(statusBarColor())
             }
             val mContentView = findViewById(Window.ID_ANDROID_CONTENT) as ViewGroup
             val mChildView = mContentView.getChildAt(0)
@@ -53,9 +55,19 @@ abstract class AppBaseActivity : AppCompatActivity() {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 window.statusBarColor = resources.getColor(color)
             } else {
-                val tintManager = SystemBarTintManager(this)
-                tintManager.isStatusBarTintEnabled = true
-                tintManager.setTintResource(color)
+                systemBarTintManager?.isStatusBarTintEnabled = true
+                systemBarTintManager?.setTintResource(color)
+            }
+        }
+    }
+
+    fun showStatusBarTransparent() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                window.statusBarColor = resources.getColor(android.R.color.transparent)
+            } else {
+                systemBarTintManager?.isStatusBarTintEnabled = false
+
             }
         }
     }
